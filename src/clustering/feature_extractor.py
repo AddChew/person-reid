@@ -1173,7 +1173,8 @@ class FeatureExtractor(object):
         pixel_std=[0.229, 0.224, 0.225],
         pixel_norm=True,
         device='cuda',
-        verbose=True
+        verbose=True,
+        batch_size=16,
     ):
         # Build model
         model = build_model(
@@ -1213,6 +1214,7 @@ class FeatureExtractor(object):
         self.preprocess = preprocess
         self.to_pil = to_pil
         self.device = device
+        self.batch_size = batch_size
 
     def __call__(self, input):
         if isinstance(input, list):
@@ -1254,7 +1256,9 @@ class FeatureExtractor(object):
         else:
             raise NotImplementedError
 
+        features = []
         with torch.no_grad():
-            features = self.model(images)
+            for idx in range(0, len(images), self.batch_size):
+                features.append(self.model(images[idx: idx + self.batch_size]))
 
-        return features
+        return torch.vstack(features)

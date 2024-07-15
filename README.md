@@ -16,8 +16,7 @@ git clone https://github.com/AddChew/person-reid.git
 cd personreid
 ```
 
-3. Download the gallery images zipped file from [link](https://drive.google.com/file/d/1dGcw5C4pI331WYFo4ADHsz75HBMD0Da7/view?usp=drive_li
-nk) and place it in personreid folder. Unzip the zipped file with the command below.
+3. Download the gallery images zipped file from [link](https://drive.google.com/file/d/1dGcw5C4pI331WYFo4ADHsz75HBMD0Da7/view?usp=drive_link) and place it in personreid folder. Unzip the zipped file with the command below.
 ```shell
 unzip Gallery.zip
 ```
@@ -33,3 +32,5 @@ pip install -r clustering_requirements.txt
 ```shell
 python src/clustering.py
 ```
+
+### How to spin up the model serving endpoint

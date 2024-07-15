@@ -34,3 +34,9 @@ python src/clustering.py
 ```
 
 ### How to spin up the model serving endpoint
+
+### How to interact with the model serving endpoint
+
+#### Swagger UI
+
+#### Python Client

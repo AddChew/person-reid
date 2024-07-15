@@ -37,6 +37,29 @@ python src/clustering.py
 
 ### How to interact with the model serving endpoint
 
+1. Spin up the model serving endpoint based on the steps in `How to spin up the model serving endpoint` if you have not done so.
+
+2. Follow the instructions in either `Swagger UI` or `Python Client` to interact with the model serving endpoint.
+
 #### Swagger UI
 
+1. Navigate to http://localhost:4000/docs
+
+2. To interact with /ping endpoint, click on the GET /ping accordion and then click on the `Try it out` button on the right side of the accordion. After which, click on the `Execute` buttom at the bottom. You should see the following response.
+
+```shell
+{
+  "message": "pong"
+}
+```
+
+3. To interact with /infer endpoint, click on the POST /infer accordion and then click on the `Try it out` button on the right side of the accordion. After which, click on `Choose File` button at the left to upload your image file for inference. Once done, click on `Execute` button. You should see the following response. The actual cluster number that you get might vary.
+
+```shell
+{
+  "cluster": 361
+}
+```
+
 #### Python Client
+

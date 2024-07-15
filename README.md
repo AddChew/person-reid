@@ -70,8 +70,8 @@ python src/clustering.py
 ```shell
 if __name__ == '__main__':
     client = PersonReIDClient()
-    print(client.ping())
-    print(client.infer("Gallery/0_1_1000.jpg")) # Set the image path to your own image path
+    print(client.ping()) # Test /ping
+    print(client.infer("Gallery/0_1_1000.jpg")) # Set the image path to your own image path, test /infer
 ```
 
 3. Run the script with the following command.
@@ -83,7 +83,7 @@ python src/client.py
 You should see the following printed on your terminal console. The actual cluster number that you get might vary.
 
 ```shell
-\{'message': 'pong'\}
-\{'cluster': 366\}
+{'message': 'pong'}
+{'cluster': 366}
 ```
 

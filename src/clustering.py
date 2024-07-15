@@ -36,7 +36,7 @@ with torch.no_grad():
 logging.info(f"Embeddings shape: {embeddings.shape}")
 
 
-embeddings_path = os.path.join(root, "outputs", "embeddings.joblib")
+embeddings_path = os.path.join(root, "outputs", "embeddings.npy")
 logging.info(f"Save embeddings to {embeddings_path}")
 np.save(embeddings, embeddings_path)
 

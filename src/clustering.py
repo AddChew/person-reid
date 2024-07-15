@@ -4,10 +4,10 @@ import torch
 
 import hdbscan
 import logging
-
 import numpy as np
+import pandas as pd
 
-from feature_extractor import FeatureExtractor
+from utils import FeatureExtractor
 
 
 random_state = 0
@@ -36,7 +36,7 @@ with torch.no_grad():
 logging.info(f"Embeddings shape: {embeddings.shape}")
 
 
-embeddings_path = os.path.join(root, "embeddings.joblib")
+embeddings_path = os.path.join(root, "outputs", "embeddings.joblib")
 logging.info(f"Save embeddings to {embeddings_path}")
 np.save(embeddings, embeddings_path)
 
@@ -50,7 +50,15 @@ logging.info(f"UMAP embeddings shape: {umap_embeddings.shape}")
 logging.info("Run HDBSCAN algorithm")
 hdbscan_model = hdbscan.HDBSCAN(min_cluster_size = 11, min_samples = 5)
 hdbscan_model.fit(umap_embeddings)
+logging.info(f"Labels {hdbscan_model.labels_}")
+logging.info(f"No of unique labels: {hdbscan_model.labels_.max() + 2}")
 
 
+labels = pd.DataFrame({"Filename": files, "ClusterID": hdbscan_model.labels_})
+logging.info(labels.head())
+logging.info(f"Labels shape: {labels.shape}")
 
-logging.info(f"UMAP embeddings shape: {umap_embeddings.shape}") # TODO: log number of clusters and clusters
+
+csv_path = os.path.join(root, "outputs", "Addison_clusterid.csv")
+logging.info(f"Save labels to CSV file {csv_path}")
+labels.to_csv(csv_path, index = False)

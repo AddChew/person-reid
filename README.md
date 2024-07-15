@@ -63,3 +63,27 @@ python src/clustering.py
 
 #### Python Client
 
+1. Make sure that you are in the project root folder (i.e. personreid)
+
+2. Open src/client.py file. You should see the following code snippet between lines 48 and 51. Set the image path in client.infer to your own image path.
+
+```shell
+if __name__ == '__main__':
+    client = PersonReIDClient()
+    print(client.ping())
+    print(client.infer("Gallery/0_1_1000.jpg")) # Set the image path to your own image path
+```
+
+3. Run the script with the following command.
+
+```shell
+python src/client.py
+```
+
+You should see the following printed on your terminal console. The actual cluster number that you get might vary.
+
+```shell
+\{'message': 'pong'\}
+\{'cluster': 366\}
+```
+

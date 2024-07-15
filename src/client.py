@@ -48,4 +48,4 @@ class PersonReIDClient:
 if __name__ == '__main__':
     client = PersonReIDClient()
     print(client.ping())
-    print(client.infer("Gallery/0_1_1000.jpg"))
+    print(client.infer("Gallery/0_1_1000.jpg")) # Set the image path to your own image path

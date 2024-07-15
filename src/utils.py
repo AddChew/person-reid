@@ -15,6 +15,7 @@ from functools import partial
 
 from collections import OrderedDict
 from torch.nn import functional as F
+from tempfile import SpooledTemporaryFile
 from collections import namedtuple, defaultdict
 
 
@@ -1221,7 +1222,7 @@ class FeatureExtractor(object):
             images = []
 
             for element in input:
-                if isinstance(element, str):
+                if isinstance(element, (str, SpooledTemporaryFile)):
                     image = Image.open(element).convert('RGB')
 
                 elif isinstance(element, np.ndarray):
@@ -1238,7 +1239,7 @@ class FeatureExtractor(object):
             images = torch.stack(images, dim=0)
             images = images.to(self.device)
 
-        elif isinstance(input, str):
+        elif isinstance(input, (str, SpooledTemporaryFile)):
             image = Image.open(input).convert('RGB')
             image = self.preprocess(image)
             images = image.unsqueeze(0).to(self.device)

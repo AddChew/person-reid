@@ -18,8 +18,8 @@ cd personreid
 
 3. Create conda environment
 ```shell
-conda create -n person-reid python=3.9 -y
-conda activate person-reid
+conda create -n personreid-clustering python=3.9 -y
+conda activate personreid-clustering
 pip install -r clustering_requirements.txt
 ```
 

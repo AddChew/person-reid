@@ -15,7 +15,7 @@ np.random.seed(random_state)
 logging.basicConfig(level = logging.INFO, format = "%(asctime)s %(levelname)s %(module)s:%(lineno)d - %(message)s")
 
 
-root = "../../"
+root = "./"
 gallery_dir = os.path.join(root, "Gallery")
 files = sorted(os.listdir(gallery_dir ))
 filepaths = [os.path.join(gallery_dir , path) for path in files]
@@ -32,13 +32,13 @@ extractor = FeatureExtractor(
 
 logging.info("Extract embeddings")
 with torch.no_grad():
-    embeddings = extractor(files).numpy()
+    embeddings = extractor(filepaths).numpy()
 logging.info(f"Embeddings shape: {embeddings.shape}")
 
 
 embeddings_path = os.path.join(root, "outputs", "embeddings.npy")
 logging.info(f"Save embeddings to {embeddings_path}")
-np.save(embeddings, embeddings_path)
+np.save(embeddings_path, embeddings)
 
 
 logging.info("Run UMAP algorithm")

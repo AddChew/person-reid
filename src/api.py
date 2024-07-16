@@ -6,7 +6,7 @@ import pandas as pd
 
 from typing import Literal
 from pydantic import BaseModel
-from src.utils import FeatureExtractor
+from utils import FeatureExtractor
 
 from fastapi import FastAPI, UploadFile
 from contextlib import asynccontextmanager

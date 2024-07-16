@@ -87,7 +87,14 @@ docker run -d --name personreid -p 4000:4000 personreid
 
 1. Make sure that you are in the project root folder (i.e. personreid)
 
-2. Open src/client.py file. You should see the following code snippet between lines 48 and 51. Set the image path in client.infer to your own image path.
+2. Create conda environment
+```shell
+conda create -n personreid-client python=3.9 -y
+conda activate personreid-client
+pip install -r client_requirements.txt
+```
+
+3. Open src/client.py file. You should see the following code snippet between lines 48 and 51. Set the image path in client.infer to your own image path.
 
 ```shell
 if __name__ == '__main__':
@@ -96,7 +103,7 @@ if __name__ == '__main__':
     print(client.infer("Gallery/0_1_1000.jpg")) # Set the image path to your own image path, test /infer
 ```
 
-3. Run the script with the following command.
+4. Run the script with the following command.
 
 ```shell
 python src/client.py

@@ -49,6 +49,14 @@ docker build -t personreid .
 docker run -d --name personreid -p 4000:4000 personreid
 ```
 
+#### Hardware specifications
+
+| Component                        | Specs                                            |
+| -------------------------------- |--------------------------------------------------|
+| Docker                           | version 26.1.0 build 9714adc                     |
+| Host OS                          | Linux Ubuntu 20.04.6 LTS                         |
+| CPU                              | x86_64 Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz |
+
 ### How to interact with the model serving endpoint
 
 1. Spin up the model serving endpoint based on the steps in `How to spin up the model serving endpoint` if you have not done so.

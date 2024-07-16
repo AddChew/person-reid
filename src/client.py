@@ -3,7 +3,7 @@ import httpx
 
 class PersonReIDClient:
 
-    def __init__(self, host: str = "localhost", port: int = 4000):
+    def __init__(self, host: str = "0.0.0.0", port: int = 4000):
         """
         Python Client for person re-identification API endpoints.
 

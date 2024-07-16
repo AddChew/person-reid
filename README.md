@@ -35,6 +35,20 @@ python src/clustering.py
 
 ### How to spin up the model serving endpoint
 
+1. Make sure that you are in the project root folder (i.e. personreid)
+
+2. Build docker image
+
+```shell
+docker build -t personreid .
+```
+
+3. Run container based on built image
+
+```shell
+docker run -d --name personreid -p 4000:4000 personreid
+```
+
 ### How to interact with the model serving endpoint
 
 1. Spin up the model serving endpoint based on the steps in `How to spin up the model serving endpoint` if you have not done so.
@@ -43,7 +57,7 @@ python src/clustering.py
 
 #### Swagger UI
 
-1. Navigate to http://localhost:4000/docs
+1. Navigate to http://0.0.0.0:4000/docs
 
 2. To interact with /ping endpoint, click on the GET /ping accordion and then click on the `Try it out` button on the right side of the accordion. After which, click on the `Execute` buttom at the bottom. You should see the following response.
 
